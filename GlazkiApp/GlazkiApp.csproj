@@ -115,7 +115,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\Глазки-save.ico" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\picture.png" />
   </ItemGroup>

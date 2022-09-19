@@ -33,11 +33,37 @@ namespace GlazkiApp.Views.PartialView
             decimal sum = 0;
             foreach (ProductSale sale in agent.ProductSale)
             {
-                qty += sale.ProductCount;
+                if (sale.SaleDate.Year == 2019)
+                {
+                    qty += sale.ProductCount;
+                }
                 sum += qty * sale.Product.MinCostForAgent;
             }
 
             qtyLbl.Text = qty + " Продаж за год";
+            phoneLbl.Text = agent.Phone;
+            priotityValueLbl.Text = agent.Priority.ToString();
+
+            if(sum < 10000)
+            {
+                presentLbl.Text = "0%";
+            }    
+            else if(sum >= 10000 && sum <= 50000)
+            {
+                presentLbl.Text = "5%";
+            }
+            else if (sum >= 50000 && sum <= 150000)
+            {
+                presentLbl.Text = "10%";
+            }
+            else if (sum >= 150000 && sum <= 500000)
+            {
+                presentLbl.Text = "20%";
+            }
+            else
+            {
+                presentLbl.Text = "25%";
+            }
         }
 
         private void AgentCard_Load(object sender, EventArgs e)
