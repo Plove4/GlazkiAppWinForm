@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.SortComboBox = new System.Windows.Forms.ComboBox();
+            this.FiltrTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.SearchBox = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.SearchBox = new System.Windows.Forms.TextBox();
-            this.FiltrTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.SortComboBox = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,6 +56,66 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1425, 92);
             this.panel1.TabIndex = 1;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(1269, 44);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(94, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "По убыванию";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // SortComboBox
+            // 
+            this.SortComboBox.BackColor = System.Drawing.Color.White;
+            this.SortComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SortComboBox.FormattingEnabled = true;
+            this.SortComboBox.Items.AddRange(new object[] {
+            "Наименование",
+            "Приоритет"});
+            this.SortComboBox.Location = new System.Drawing.Point(1009, 22);
+            this.SortComboBox.Name = "SortComboBox";
+            this.SortComboBox.Size = new System.Drawing.Size(254, 39);
+            this.SortComboBox.TabIndex = 3;
+            this.SortComboBox.SelectedIndexChanged += new System.EventHandler(this.SortComboBox_SelectedIndexChanged);
+            // 
+            // FiltrTypeComboBox
+            // 
+            this.FiltrTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FiltrTypeComboBox.FormattingEnabled = true;
+            this.FiltrTypeComboBox.Location = new System.Drawing.Point(788, 22);
+            this.FiltrTypeComboBox.Name = "FiltrTypeComboBox";
+            this.FiltrTypeComboBox.Size = new System.Drawing.Size(200, 39);
+            this.FiltrTypeComboBox.TabIndex = 2;
+            this.FiltrTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.FiltrTypeComboBox_SelectedIndexChanged);
+            // 
+            // SearchBox
+            // 
+            this.SearchBox.AccessibleName = "";
+            this.SearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchBox.ForeColor = System.Drawing.Color.Silver;
+            this.SearchBox.Location = new System.Drawing.Point(123, 22);
+            this.SearchBox.Multiline = true;
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(643, 45);
+            this.SearchBox.TabIndex = 1;
+            this.SearchBox.Text = "Введите текст";
+            this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
+            this.SearchBox.Enter += new System.EventHandler(this.SearchBox_Enter);
+            this.SearchBox.Leave += new System.EventHandler(this.SearchBox_Leave);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GlazkiApp.Properties.Resources.Глазки_save;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(91, 74);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -85,60 +146,6 @@
             this.panel3.Size = new System.Drawing.Size(1425, 498);
             this.panel3.TabIndex = 3;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GlazkiApp.Properties.Resources.Глазки_save;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(91, 74);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // SearchBox
-            // 
-            this.SearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SearchBox.Location = new System.Drawing.Point(123, 22);
-            this.SearchBox.Multiline = true;
-            this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(643, 45);
-            this.SearchBox.TabIndex = 1;
-            this.SearchBox.Text = "Введите для поиска";
-            this.SearchBox.Click += new System.EventHandler(this.SearchBox_Click);
-            this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
-            // 
-            // FiltrTypeComboBox
-            // 
-            this.FiltrTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FiltrTypeComboBox.FormattingEnabled = true;
-            this.FiltrTypeComboBox.Location = new System.Drawing.Point(812, 22);
-            this.FiltrTypeComboBox.Name = "FiltrTypeComboBox";
-            this.FiltrTypeComboBox.Size = new System.Drawing.Size(200, 39);
-            this.FiltrTypeComboBox.TabIndex = 2;
-            this.FiltrTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.FiltrTypeComboBox_SelectedIndexChanged);
-            // 
-            // SortComboBox
-            // 
-            this.SortComboBox.BackColor = System.Drawing.Color.White;
-            this.SortComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SortComboBox.FormattingEnabled = true;
-            this.SortComboBox.Location = new System.Drawing.Point(1046, 22);
-            this.SortComboBox.Name = "SortComboBox";
-            this.SortComboBox.Size = new System.Drawing.Size(200, 39);
-            this.SortComboBox.TabIndex = 3;
-            this.SortComboBox.SelectedIndexChanged += new System.EventHandler(this.SortComboBox_SelectedIndexChanged);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(1269, 44);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(110, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "По возрастанию";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,13 +155,14 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

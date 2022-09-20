@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Глазки-save.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -55,10 +58,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Views\EditAgentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Views\EditAgentForm.Designer.cs">
+      <DependentUpon>EditAgentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Agent.cs" />
@@ -85,7 +94,10 @@
     <Compile Include="Views\PartialView\AgentCard.Designer.cs">
       <DependentUpon>AgentCard.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Views\EditAgentForm.resx">
+      <DependentUpon>EditAgentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -102,6 +114,20 @@
       <DependentUpon>AgentCard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.Agent.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.AgentPriorityHistory.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.AgentType.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.Material.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.MaterialCountHistory.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.MaterialType.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.Product.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.ProductCostHistory.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.ProductMaterial.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.ProductSale.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.ProductType.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.Shop.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.Supplier.datasource" />
+    <None Include="Properties\DataSources\GlazkiApp.Models.sysdiagrams.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,12 +143,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Глазки-save.ico" />
+    <Content Include="Resources\Глазки-save.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\picture.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\глазки-save.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

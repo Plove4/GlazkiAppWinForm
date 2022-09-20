@@ -135,9 +135,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label TypeNameLbl;
         private System.Windows.Forms.Label qtyLbl;
-        private System.Windows.Forms.Label phoneLbl;
         private System.Windows.Forms.Label priotityLbl;
         private System.Windows.Forms.Label priotityValueLbl;
         private System.Windows.Forms.Label presentLbl;
+        public System.Windows.Forms.Label phoneLbl;
     }
 }
