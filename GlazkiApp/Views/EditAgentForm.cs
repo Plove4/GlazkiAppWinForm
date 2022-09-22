@@ -30,6 +30,8 @@ namespace GlazkiApp.Views
 
         private void EditAgentForm_Load(object sender, EventArgs e)
         {
+
+            agentTypeBindingSource.DataSource = DBContext.db.AgentType.ToList();
             foreach (AgentCard agentCard in MainForm.selectrdAgentCards)
             {
                 Agent agent = DBContext.db.Agent.First(x => x.ID.ToString() == agentCard.IDlbl.Text);
@@ -44,7 +46,7 @@ namespace GlazkiApp.Views
                 }
             }
 
-            agentTypeBindingSource.DataSource = DBContext.db.AgentType.ToList();
+
         }
 
         private void SaveButn_Click(object sender, EventArgs e)

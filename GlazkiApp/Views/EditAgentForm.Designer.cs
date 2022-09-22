@@ -294,7 +294,6 @@
             // 
             // agentTypeIDComboBox
             // 
-            this.agentTypeIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentBindingSource, "AgentTypeID", true));
             this.agentTypeIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.agentBindingSource, "AgentTypeID", true));
             this.agentTypeIDComboBox.DataSource = this.agentTypeBindingSource;
             this.agentTypeIDComboBox.DisplayMember = "Title";
