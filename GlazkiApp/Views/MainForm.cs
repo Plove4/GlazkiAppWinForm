@@ -21,12 +21,17 @@ namespace GlazkiApp
         public MainForm()
         {
             InitializeComponent();
-            agents = DBContext.Context.Agent.ToList();
+            agents = DBContext.db.Agent.ToList();
+            GenerateAgentCardList(agents);
         }
 
         private void GenerateAgentCardList(List<Agent> agent)
         {
-            foreach (var a in agent)
+            flowLayoutPanel1.Controls.Clear();
+
+            
+
+            foreach (Agent a in agent)
             {
                 AgentCard card = new AgentCard();
 
@@ -34,35 +39,64 @@ namespace GlazkiApp
                 flowLayoutPanel1.Controls.Add(card);
 
                 card.DoubleClick += new System.EventHandler(this.Card_doubleClick);
+                card.Click += Card_Click;
             }
+        }
+
+        private void Card_Click(object sender, EventArgs e)
+        {
+            AgentCard card = sender as AgentCard;
+
+            if (card.BackColor == Color.White)
+            {
+                card.BackColor = Color.FromArgb(255, 233, 249);
+                selectrdAgentCards.Add(card);
+            }
+            else
+            {
+                card.BackColor = Color.White;
+                selectrdAgentCards.Remove(card);
+            }
+
+            //if (selectrdAgentCards.Count >= 2)
+            //{
+            //    Addbtn.Visible = false;
+            //}
+            //else
+            //{
+            //    Addbtn.Visible = true;
+            //}
         }
 
         private void Card_doubleClick(object sender, EventArgs e)
         {
             AgentCard card = sender as AgentCard;
             selectrdAgentCards.Add(card);
-            EditAgentForm editAgent = new EditAgentForm();
+            EditAgentForm editAgent = new EditAgentForm(null);
             DialogResult result = editAgent.ShowDialog();
-
+            if (result == DialogResult.OK)
+            {
+            SortListView();
+            }
+            selectrdAgentCards.Clear();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             GenerateAgentCardList(agents);
-            var allTipe = DBContext.Context.AgentType.Select(Type => Type.Title).ToList();
+            var allTipe = DBContext.db.AgentType.Select(Type => Type.Title).ToList();
             allTipe.Insert(0, "Все типы");
             FiltrTypeComboBox.DataSource = allTipe;
             FiltrTypeComboBox.SelectedIndex = 0;
             SortComboBox.SelectedIndex = 0;
-
         }
 
         private void SortListView()
         {
             flowLayoutPanel1.Controls.Clear();
-            var listUpdate = DBContext.Context.Agent.ToList();
+            var listUpdate = DBContext.db.Agent.ToList();
 
-            if(!string.IsNullOrEmpty(SearchBox.Text) && SearchBox.Text != "Введите текст")
+            if (!string.IsNullOrEmpty(SearchBox.Text) && SearchBox.Text != "Введите текст")
             {
                 listUpdate = listUpdate
                     .Where(p => p.Title.ToLower().Contains(SearchBox.Text.ToLower())
@@ -71,26 +105,32 @@ namespace GlazkiApp
                     .ToList();
             }
 
-            if(FiltrTypeComboBox.SelectedIndex > 0)
+            if (FiltrTypeComboBox.SelectedIndex > 0)
             {
                 listUpdate = listUpdate
                     .Where(p => p.AgentType.Title == FiltrTypeComboBox.SelectedItem.ToString())
                     .ToList();
             }
 
-            switch (SortComboBox.Text)
+            switch (SortComboBox.SelectedIndex)
             {
-                case "Наименование":
+                case 1:
                     if (!checkBox1.Checked)
                         listUpdate = listUpdate.OrderBy(p => p.Title).ToList();
                     else
                         listUpdate = listUpdate.OrderByDescending(p => p.Title).ToList();
-                break;
-                case "Приоритет":
-                    if(!checkBox1.Checked)
-                        listUpdate= listUpdate.OrderBy(p => p.Priority).ToList();
+                    break;
+                case 2:
+                    if (!checkBox1.Checked)
+                        listUpdate = listUpdate.OrderBy(p => p.Priority).ToList();
                     else
-                        listUpdate= listUpdate.OrderByDescending(p => p.Priority).ToList();
+                        listUpdate = listUpdate.OrderByDescending(p => p.Priority).ToList();
+                    break;
+                case 3:
+                    if (!checkBox1.Checked)
+                        listUpdate= listUpdate.OrderBy(p => p.diskaunt).ToList();
+                    else 
+                        listUpdate= listUpdate.OrderByDescending(p => p.diskaunt).ToList();
                     break;
             }
 
@@ -131,6 +171,16 @@ namespace GlazkiApp
                 SearchBox.Text = "Введите текст";
             if (string.IsNullOrEmpty(SearchBox.Text) || SearchBox.Text == "Введите текст")
                 SearchBox.ForeColor = Color.Silver;
+        }
+
+        private void Addbtn_Click(object sender, EventArgs e)
+        {
+            EditAgentForm agentform = new EditAgentForm(null);
+            DialogResult result = agentform.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                SortListView();
+            }
         }
     }
 }

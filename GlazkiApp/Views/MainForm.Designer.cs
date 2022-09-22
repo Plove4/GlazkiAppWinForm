@@ -38,8 +38,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Addbtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,11 +73,14 @@
             // SortComboBox
             // 
             this.SortComboBox.BackColor = System.Drawing.Color.White;
+            this.SortComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SortComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SortComboBox.FormattingEnabled = true;
             this.SortComboBox.Items.AddRange(new object[] {
+            "Все",
             "Наименование",
-            "Приоритет"});
+            "Приоритет",
+            "Скидка"});
             this.SortComboBox.Location = new System.Drawing.Point(1009, 22);
             this.SortComboBox.Name = "SortComboBox";
             this.SortComboBox.Size = new System.Drawing.Size(254, 39);
@@ -84,6 +89,7 @@
             // 
             // FiltrTypeComboBox
             // 
+            this.FiltrTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FiltrTypeComboBox.FormattingEnabled = true;
             this.FiltrTypeComboBox.Location = new System.Drawing.Point(788, 22);
@@ -120,6 +126,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(249)))));
+            this.panel2.Controls.Add(this.Addbtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 590);
             this.panel2.Name = "panel2";
@@ -128,10 +135,11 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1425, 498);
@@ -145,6 +153,21 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1425, 498);
             this.panel3.TabIndex = 3;
+            // 
+            // Addbtn
+            // 
+            this.Addbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(117)))), ((int)(((byte)(238)))));
+            this.Addbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Addbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Addbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Addbtn.ForeColor = System.Drawing.Color.White;
+            this.Addbtn.Location = new System.Drawing.Point(24, 16);
+            this.Addbtn.Name = "Addbtn";
+            this.Addbtn.Size = new System.Drawing.Size(182, 35);
+            this.Addbtn.TabIndex = 22;
+            this.Addbtn.Text = "Добавить";
+            this.Addbtn.UseVisualStyleBackColor = false;
+            this.Addbtn.Click += new System.EventHandler(this.Addbtn_Click);
             // 
             // MainForm
             // 
@@ -162,6 +185,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -177,6 +201,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ComboBox SortComboBox;
         private System.Windows.Forms.ComboBox FiltrTypeComboBox;
+        private System.Windows.Forms.Button Addbtn;
     }
 }
 

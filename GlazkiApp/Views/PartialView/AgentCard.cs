@@ -20,14 +20,15 @@ namespace GlazkiApp.Views.PartialView
 
         public void GenerateDataToAgentCard(Agent agent)
         {
-            if (!string.IsNullOrEmpty(agent.Logo) || agent.Logo == "не указано")
+            IDlbl.Text = Convert.ToString(agent.ID);
+            if (agent.Logo == "не указано" || agent.Logo == "отсутствует")
+            {
+                agent.Logo = string.Empty;
+            }
+            if (!string.IsNullOrEmpty(agent.Logo))
             {
                 pictureBox1.ImageLocation = agent.Logo.Remove(0,1);
-            }
-            else
-            {
-                pictureBox1.ImageLocation = agent.Logo;
-            }    
+            }  
             TypeNameLbl.Text = agent.AgentType.Title + " | " + agent.Title;
             int qty = 0;
             decimal sum = 0;
@@ -39,30 +40,13 @@ namespace GlazkiApp.Views.PartialView
                 }
                 sum += qty * sale.Product.MinCostForAgent;
             }
-
             qtyLbl.Text = qty + " Продаж за год";
             phoneLbl.Text = agent.Phone;
             priotityValueLbl.Text = agent.Priority.ToString();
-
-            if(sum < 10000)
+            presentLbl.Text = $"{agent.diskaunt}%";
+            if (agent.diskaunt > 19)
             {
-                presentLbl.Text = "0%";
-            }    
-            else if(sum >= 10000 && sum <= 50000)
-            {
-                presentLbl.Text = "5%";
-            }
-            else if (sum >= 50000 && sum <= 150000)
-            {
-                presentLbl.Text = "10%";
-            }
-            else if (sum >= 150000 && sum <= 500000)
-            {
-                presentLbl.Text = "20%";
-            }
-            else
-            {
-                presentLbl.Text = "25%";
+                presentLbl.BackColor = Color.LightGreen;
             }
         }
 

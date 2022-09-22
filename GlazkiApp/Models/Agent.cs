@@ -52,6 +52,44 @@ namespace GlazkiApp.Models
 
         public virtual AgentType AgentType { get; set; }
 
+        public int diskaunt 
+        {
+            get
+            {
+                int diskaunt = 0;
+                int qtyAllPeriod = 0;
+                decimal sumAllPeriod = 0;
+
+                foreach (ProductSale sale in ProductSale)
+                {
+                    qtyAllPeriod += sale.ProductCount;
+                    sumAllPeriod += qtyAllPeriod * sale.Product.MinCostForAgent;
+                }
+
+                if (sumAllPeriod < 10000)
+                {
+                   diskaunt = 0;
+                }
+                else if (sumAllPeriod >= 10000 && sumAllPeriod <= 50000)
+                {
+                    diskaunt = 5;
+                }
+                else if (sumAllPeriod >= 50000 && sumAllPeriod <= 150000)
+                {
+                    diskaunt = 10;
+                }
+                else if (sumAllPeriod >= 150000 && sumAllPeriod <= 500000)
+                {
+                    diskaunt = 20;
+                }
+                else
+                {
+                    diskaunt = 25;
+                }
+                return diskaunt;
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AgentPriorityHistory> AgentPriorityHistory { get; set; }
 

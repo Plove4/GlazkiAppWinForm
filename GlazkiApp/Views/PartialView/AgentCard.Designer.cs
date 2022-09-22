@@ -35,6 +35,7 @@
             this.priotityValueLbl = new System.Windows.Forms.Label();
             this.presentLbl = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.IDlbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,11 +110,24 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // IDlbl
+            // 
+            this.IDlbl.AutoSize = true;
+            this.IDlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.IDlbl.Location = new System.Drawing.Point(1365, 14);
+            this.IDlbl.Name = "IDlbl";
+            this.IDlbl.Size = new System.Drawing.Size(6, 2);
+            this.IDlbl.TabIndex = 8;
+            this.IDlbl.Text = "label1";
+            this.IDlbl.Visible = false;
+            // 
             // AgentCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.IDlbl);
             this.Controls.Add(this.presentLbl);
             this.Controls.Add(this.priotityValueLbl);
             this.Controls.Add(this.priotityLbl);
@@ -139,5 +153,6 @@
         private System.Windows.Forms.Label priotityValueLbl;
         private System.Windows.Forms.Label presentLbl;
         public System.Windows.Forms.Label phoneLbl;
+        public System.Windows.Forms.Label IDlbl;
     }
 }

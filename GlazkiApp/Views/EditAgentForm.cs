@@ -16,27 +16,62 @@ namespace GlazkiApp.Views
 {
     public partial class EditAgentForm : Form
     {
-        public Agent Agent { get; set; } = null;
-        public EditAgentForm()
+        public Agent agent { get; set; } = null;
+        public EditAgentForm(Agent agent)
         {
             InitializeComponent();
         }
 
         private void CancleButn_Click(object sender, EventArgs e)
         {
+            Application.Restart();
             DialogResult = DialogResult.Cancel;
         }
 
         private void EditAgentForm_Load(object sender, EventArgs e)
         {
-            foreach  (AgentCard agentCard in MainForm.selectrdAgentCards)
+            foreach (AgentCard agentCard in MainForm.selectrdAgentCards)
             {
-                Agent agent = DBContext.Context.Agent.First(x => x.Phone == agentCard.phoneLbl.Text) as Agent;
+                Agent agent = DBContext.db.Agent.First(x => x.ID.ToString() == agentCard.IDlbl.Text);
                 agentBindingSource.DataSource = agent;
-                logoPictureBox.ImageLocation = agent.Logo;
+                if (!string.IsNullOrEmpty(agent.Logo))
+                {
+                    LogoPicBox.ImageLocation = agent.Logo.Remove(0, 1);
+                }
+                else
+                {
+                    LogoPicBox.ImageLocation = null;
+                }
             }
-            agentTypeBindingSource.DataSource = DBContext.Context.AgentType.ToList();
-            //ComboxTypeAgent.DataSource = DBContext.Context.AgentType.ToList();
+
+            agentTypeBindingSource.DataSource = DBContext.db.AgentType.ToList();
+        }
+
+        private void SaveButn_Click(object sender, EventArgs e)
+        {
+            agent = (Agent)agentBindingSource.Current;
+
+            if (agent.ID == 0)
+            {
+                DBContext.db.Agent.Add(agent);
+            }
+
+            try
+            {
+                DBContext.db.SaveChanges();
+                MessageBox.Show("Данные сохранены");
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void ChangeImageButn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "";
         }
     }
 }

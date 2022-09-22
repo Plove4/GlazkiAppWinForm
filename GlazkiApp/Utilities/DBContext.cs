@@ -10,16 +10,7 @@ namespace GlazkiApp.Utilities
 {
     internal class DBContext
     {
-        private static ModelDB db { get; set; }
+        public static ModelDB db = new ModelDB();
 
-        public static ModelDB Context
-        {
-            get 
-            {
-                if (db == null)
-                    db = new ModelDB();
-                return db;
-            }  
-        }
     }
 }
