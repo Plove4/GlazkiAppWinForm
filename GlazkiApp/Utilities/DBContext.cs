@@ -11,6 +11,5 @@ namespace GlazkiApp.Utilities
     internal class DBContext
     {
         public static ModelDB db = new ModelDB();
-
     }
 }

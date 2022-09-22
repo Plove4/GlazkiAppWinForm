@@ -139,7 +139,10 @@ namespace GlazkiApp
 
         private void SearchBox_TextChanged(object sender, EventArgs e)
         {
-            SortListView();
+            if (!string.IsNullOrEmpty(SearchBox.Text) && SearchBox.Text != "Введите текст")
+            {
+                SortListView();
+            }
         }
 
         private void FiltrTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)

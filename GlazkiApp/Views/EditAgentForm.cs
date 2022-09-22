@@ -30,7 +30,6 @@ namespace GlazkiApp.Views
 
         private void EditAgentForm_Load(object sender, EventArgs e)
         {
-
             agentTypeBindingSource.DataSource = DBContext.db.AgentType.ToList();
             foreach (AgentCard agentCard in MainForm.selectrdAgentCards)
             {
@@ -45,8 +44,6 @@ namespace GlazkiApp.Views
                     LogoPicBox.ImageLocation = null;
                 }
             }
-
-
         }
 
         private void SaveButn_Click(object sender, EventArgs e)
