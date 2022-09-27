@@ -71,8 +71,7 @@ namespace GlazkiApp
         private void Card_doubleClick(object sender, EventArgs e)
         {
             AgentCard card = sender as AgentCard;
-            selectrdAgentCards.Add(card);
-            EditAgentForm editAgent = new EditAgentForm(null);
+            EditAgentForm editAgent = new EditAgentForm(DBContext.db.Agent.First(p => p.ID.ToString() == card.IDlbl.Text));
             DialogResult result = editAgent.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -115,19 +114,19 @@ namespace GlazkiApp
             switch (SortComboBox.SelectedIndex)
             {
                 case 1:
-                    if (!checkBox1.Checked)
+                    if (checkBox1.Checked)
                         listUpdate = listUpdate.OrderBy(p => p.Title).ToList();
                     else
                         listUpdate = listUpdate.OrderByDescending(p => p.Title).ToList();
                     break;
                 case 2:
-                    if (!checkBox1.Checked)
+                    if (checkBox1.Checked)
                         listUpdate = listUpdate.OrderBy(p => p.Priority).ToList();
                     else
                         listUpdate = listUpdate.OrderByDescending(p => p.Priority).ToList();
                     break;
                 case 3:
-                    if (!checkBox1.Checked)
+                    if (checkBox1.Checked)
                         listUpdate= listUpdate.OrderBy(p => p.diskaunt).ToList();
                     else 
                         listUpdate= listUpdate.OrderByDescending(p => p.diskaunt).ToList();

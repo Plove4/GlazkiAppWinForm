@@ -36,9 +36,9 @@
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Addbtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Addbtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -64,9 +64,9 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(1269, 44);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(94, 17);
+            this.checkBox1.Size = new System.Drawing.Size(110, 17);
             this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "По убыванию";
+            this.checkBox1.Text = "По возрастанию";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -133,6 +133,21 @@
             this.panel2.Size = new System.Drawing.Size(1425, 73);
             this.panel2.TabIndex = 2;
             // 
+            // Addbtn
+            // 
+            this.Addbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(117)))), ((int)(((byte)(238)))));
+            this.Addbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Addbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Addbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Addbtn.ForeColor = System.Drawing.Color.White;
+            this.Addbtn.Location = new System.Drawing.Point(24, 16);
+            this.Addbtn.Name = "Addbtn";
+            this.Addbtn.Size = new System.Drawing.Size(182, 35);
+            this.Addbtn.TabIndex = 22;
+            this.Addbtn.Text = "Добавить";
+            this.Addbtn.UseVisualStyleBackColor = false;
+            this.Addbtn.Click += new System.EventHandler(this.Addbtn_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -153,21 +168,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1425, 498);
             this.panel3.TabIndex = 3;
-            // 
-            // Addbtn
-            // 
-            this.Addbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(117)))), ((int)(((byte)(238)))));
-            this.Addbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Addbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Addbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Addbtn.ForeColor = System.Drawing.Color.White;
-            this.Addbtn.Location = new System.Drawing.Point(24, 16);
-            this.Addbtn.Name = "Addbtn";
-            this.Addbtn.Size = new System.Drawing.Size(182, 35);
-            this.Addbtn.TabIndex = 22;
-            this.Addbtn.Text = "Добавить";
-            this.Addbtn.UseVisualStyleBackColor = false;
-            this.Addbtn.Click += new System.EventHandler(this.Addbtn_Click);
             // 
             // MainForm
             // 

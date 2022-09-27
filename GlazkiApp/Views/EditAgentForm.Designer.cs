@@ -58,6 +58,7 @@
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Deletbtn = new System.Windows.Forms.Button();
             titleLabel = new System.Windows.Forms.Label();
             priorityLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
@@ -70,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.agentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentTypeBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -177,6 +179,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(249)))));
+            this.panel3.Controls.Add(this.Deletbtn);
+            this.panel3.Controls.Add(this.SaveButn);
+            this.panel3.Controls.Add(this.CancleButn);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -189,7 +194,7 @@
             this.SaveButn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveButn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SaveButn.ForeColor = System.Drawing.Color.White;
-            this.SaveButn.Location = new System.Drawing.Point(122, 293);
+            this.SaveButn.Location = new System.Drawing.Point(26, 14);
             this.SaveButn.Name = "SaveButn";
             this.SaveButn.Size = new System.Drawing.Size(122, 35);
             this.SaveButn.TabIndex = 20;
@@ -204,7 +209,7 @@
             this.CancleButn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancleButn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CancleButn.ForeColor = System.Drawing.Color.White;
-            this.CancleButn.Location = new System.Drawing.Point(306, 293);
+            this.CancleButn.Location = new System.Drawing.Point(398, 14);
             this.CancleButn.Name = "CancleButn";
             this.CancleButn.Size = new System.Drawing.Size(122, 35);
             this.CancleButn.TabIndex = 21;
@@ -345,14 +350,26 @@
             this.panel1.Controls.Add(this.titleTextBox);
             this.panel1.Controls.Add(this.LogoPicBox);
             this.panel1.Controls.Add(this.ChangeImageButn);
-            this.panel1.Controls.Add(this.CancleButn);
-            this.panel1.Controls.Add(this.SaveButn);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(543, 351);
             this.panel1.TabIndex = 0;
+            // 
+            // Deletbtn
+            // 
+            this.Deletbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(117)))), ((int)(((byte)(238)))));
+            this.Deletbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Deletbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Deletbtn.ForeColor = System.Drawing.Color.White;
+            this.Deletbtn.Location = new System.Drawing.Point(243, 14);
+            this.Deletbtn.Name = "Deletbtn";
+            this.Deletbtn.Size = new System.Drawing.Size(122, 35);
+            this.Deletbtn.TabIndex = 22;
+            this.Deletbtn.Text = "Удалить";
+            this.Deletbtn.UseVisualStyleBackColor = false;
+            this.Deletbtn.Click += new System.EventHandler(this.Deletbtn_Click);
             // 
             // EditAgentForm
             // 
@@ -367,6 +384,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.agentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentTypeBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicBox)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -394,5 +412,6 @@
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button Deletbtn;
     }
 }
